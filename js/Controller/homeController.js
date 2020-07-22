@@ -1,14 +1,24 @@
-angular.module('myApp').controller("homeController", function ($scope, $q, $interval,navigationService,apiService) {
+angular.module('myApp').controller("homeController", function ($scope, $q, $interval,navigationService,apiService,productService,commonMethods) {
 
     async function init() {
-//        $scope.selectedTab = "home"
         console.log("I am init function of homeController");
-        await getCompanyDetails();
+        getCompanyDetails();
         await getCompanyCategory();
-        await  getCompanyProducts();
-//       navigationService.setActiveTemplate($scope.selectedTab);
+        await getCompanyProducts();
     }
 
+    $scope.getProductDetails = function(item){
+        productService.setProductDetailsToLS(item);
+        navigationService.setActiveTemplate("single");
+    }
+
+    $scope.getCate = function(item){
+        $scope.selectedCategory = item;
+    }
+
+    $scope.convertImages = function(imageData){
+        return commonMethods.decodebytesFromString(imageData)
+    }
   
     async function getCompanyDetails() {
         try {
@@ -33,8 +43,8 @@ angular.module('myApp').controller("homeController", function ($scope, $q, $inte
         try {
             let response = await apiService.getCategory();
             $scope.comapnyCategory = response.data;
-            // $scope.selectedCategory = $scope.comapnyCategory[0];
-            // $scope.addCategory = $scope.comapnyCategory[0];
+            $scope.selectedCategory = $scope.comapnyCategory[0];
+            $scope.addCategory = $scope.comapnyCategory[0];
             $scope.$apply();
         } catch (error) {
             console.log(error);

@@ -15,235 +15,15 @@
                     <div class="owl-stage-outer">
                        <div class="owl-stage" style="transform: translate3d(-1200px, 0px, 0px); transition: all 0s ease 0s; width: 4600px;">
                           <div class="owl-item cloned" style="width: 170px; margin-right: 30px;" ng-repeat="cate in comapnyCategory">
-                             <div class="item">
+                             <div class="item" ng-click="getCate(cate);">
                                 <a href="#" class="category-item">
                                    <div class="cate-img">
                                       <img src="images/category/icon-6.svg" alt="">
                                    </div>
-                                   <h4> {{cate.RootCat_Name}} </h4>
+                                   <h4> {{cate.RootCat_Name}}  </h4>
                                 </a>
                              </div>
                           </div>
-                          <!-- <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-7.svg" alt="">
-                                   </div>
-                                   <h4> Noodles &amp; Sauces </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-8.svg" alt="">
-                                   </div>
-                                   <h4> Personal Care </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-9.svg" alt="">
-                                   </div>
-                                   <h4> Pet Care </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-10.svg" alt="">
-                                   </div>
-                                   <h4> Meat &amp; Seafood </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-11.svg" alt="">
-                                   </div>
-                                   <h4> Electronics </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item active" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-1.svg" alt="">
-                                   </div>
-                                   <h4>Vegetables &amp; Fruits</h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item active" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-2.svg" alt="">
-                                   </div>
-                                   <h4> Grocery &amp; Staples </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item active" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-3.svg" alt="">
-                                   </div>
-                                   <h4> Dairy &amp; Eggs </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item active" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-4.svg" alt="">
-                                   </div>
-                                   <h4> Beverages </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item active" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-5.svg" alt="">
-                                   </div>
-                                   <h4> Snacks </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item active" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-6.svg" alt="">
-                                   </div>
-                                   <h4> Home Care </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-7.svg" alt="">
-                                   </div>
-                                   <h4> Noodles &amp; Sauces </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-8.svg" alt="">
-                                   </div>
-                                   <h4> Personal Care </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-9.svg" alt="">
-                                   </div>
-                                   <h4> Pet Care </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-10.svg" alt="">
-                                   </div>
-                                   <h4> Meat &amp; Seafood </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-11.svg" alt="">
-                                   </div>
-                                   <h4> Electronics </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-1.svg" alt="">
-                                   </div>
-                                   <h4>Vegetables &amp; Fruits</h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-2.svg" alt="">
-                                   </div>
-                                   <h4> Grocery &amp; Staples </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-3.svg" alt="">
-                                   </div>
-                                   <h4> Dairy &amp; Eggs </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-4.svg" alt="">
-                                   </div>
-                                   <h4> Beverages </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-5.svg" alt="">
-                                   </div>
-                                   <h4> Snacks </h4>
-                                </a>
-                             </div>
-                          </div>
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;">
-                             <div class="item">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-6.svg" alt="">
-                                   </div>
-                                   <h4> Home Care </h4>
-                                </a>
-                             </div>
-                          </div> -->
                        </div>
                     </div>
                     <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="uil uil-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="uil uil-angle-right"></i></button></div>
@@ -259,7 +39,7 @@
                 <div class="col-lg-12">
                     <div class="product-top-dt">
                         <div class="product-left-title">
-                            <h2>Vegetables & Fruits</h2>
+                            <h2>{{selectedCategory.RootCat_Name}} </h2>
                         </div>
                         <a href="#" class="filter-btn pull-bs-canvas-right">Filters</a>
                         <div class="product-sort">
@@ -283,10 +63,11 @@
             </div>
             <div class="product-list-view">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6"  ng-repeat = "items in comapnyItems">
-                        <div class="product-item mb-30">
+                    <div class="col-lg-3 col-md-6"  ng-repeat = "items in comapnyItems | filter:{RootCat_ID:selectedCategory.Id}">
+                        <div class="product-item mb-30" ng-click="getProductDetails(items)">
                             <a href class="product-img">
-                                <img src="images/product/img-1.jpg" alt="">
+                                <img ng-if="!items.MenuItem_Image" src="images/product/img-1.jpg" alt="">
+                                <img ng-if="items.MenuItem_Image" ng-src="data:image/png;base64,{{convertImages(items.MenuItem_Image)}}" alt="">
                                 <div class="product-absolute-options">
                                     <span class="offer-badge-1">6% off</span>
                                     <span class="like-icon" title="wishlist"></span>
@@ -309,7 +90,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="more-product-btn">
-                            <button class="show-more-btn hover-btn" onclick="window.location.href = '#';">Show More</button>
+                            <button class="show-more-btn hover-btn">Show More</button>
                         </div>
                     </div>
                 </div>
