@@ -2,7 +2,6 @@ angular.module('myApp').controller("homeController", function ($scope, $q, $inte
 
     async function init() {
         console.log("I am init function of homeController");
-        getCompanyDetails();
         await getCompanyCategory();
         await getCompanyProducts();
     }
@@ -20,15 +19,6 @@ angular.module('myApp').controller("homeController", function ($scope, $q, $inte
         return commonMethods.decodebytesFromString(imageData)
     }
   
-    async function getCompanyDetails() {
-        try {
-            let response = await apiService.getCompany();
-            $scope.comapnyDetails = response.data["data"][0];
-            $scope.$apply();
-        } catch (error) {
-            console.log(error);
-        }
-    }
     async function getCompanyProducts() {
         try {
             let response = await apiService.getItems();
