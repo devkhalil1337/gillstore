@@ -76,14 +76,14 @@
                             <div class="product-text-dt">
                                 <p>Available<span>(In Stock)</span></p>
                                 <h4 ng-click="getProductDetails(items)">{{items.MenuItem_Name}}</h4>
-                                <div class="product-price">{{item.MenuItem_Price}} <span>$15</span></div>
+                                <div class="product-price">{{items.MenuItem_Price | currency}}</div>
                                 <div class="qty-cart">
                                     <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus minus-btn">
-                                        <input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-                                        <input type="button" value="+" class="plus plus-btn">
+                                        <input type="button" value="-" class="minus minus-btn" ng-click="subqty(items)">
+                                        <input type="text"  value="{{items.quantity ? items.quantity:1}}" class="input-text qty text">
+                                        <input type="button" value="+" class="plus plus-btn" ng-click="addqty(items)">
                                     </div>
-                                    <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+                                    <span class="cart-icon"><i class="uil uil-shopping-cart-alt" ng-click="addProduct(items);"></i></span>
                                 </div>
                             </div>
                         </div>

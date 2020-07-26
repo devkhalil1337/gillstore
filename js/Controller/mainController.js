@@ -1,9 +1,10 @@
-angular.module('myApp').controller("mainController", function ($scope,$rootScope, $q, $interval,navigationService,apiService) {
-
+angular.module('myApp').controller("mainController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,productService) {
+    $scope.cartData = [];
     function init() {
         $scope.selectedTab = "home"
-        console.log("I am init function of mainController");
         getCompanyDetails();
+        getDataFromSession();
+        $scope.totalAmount = productService.getTotalAmount();
        navigationService.setActiveTemplate($scope.selectedTab);
     }
 
@@ -11,6 +12,22 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
     $scope.openPage = function (option) {
         $scope.selectedTab = option;
         navigationService.setActiveTemplate(option);
+    }
+
+    $scope.addqty = function(data){
+        productService.addQty(data);
+    }
+    
+    $scope.subqty = function(data){
+        productService.subQty(data);
+   }
+
+    $scope.removeProductFromCart = function(item){
+        productService.removeProductFromCart(item);
+    }
+
+    async function getDataFromSession(){
+        $scope.cartData = productService.getProductToLocalStorage();
     }
 
     async function getCompanyDetails() {
@@ -22,6 +39,11 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
             console.log(error);
         }
     }
+
+    $scope.$on("$destroy", productService.observeOnCartChange(function (val) {
+        getDataFromSession();
+        $scope.totalAmount = productService.getTotalAmount();
+	}));
   
     $scope.$on("$destroy", navigationService.observeActiveTemplateChanged(
         function (val) {

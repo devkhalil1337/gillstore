@@ -11,6 +11,18 @@ angular.module('myApp').controller("homeController", function ($scope, $q, $inte
         navigationService.setActiveTemplate("single");
     }
 
+    $scope.addProduct = function(item){
+        productService.addtoCart(item);
+    }
+
+    $scope.addqty = function(data){
+        productService.addQty(data);
+    }
+    
+    $scope.subqty = function(data){
+        productService.subQty(data);
+   }
+
     $scope.getCate = function(item){
         $scope.selectedCategory = item;
     }
@@ -22,7 +34,9 @@ angular.module('myApp').controller("homeController", function ($scope, $q, $inte
     async function getCompanyProducts() {
         try {
             let response = await apiService.getItems();
+            await productService.updateQuantityFromSession(response.data); //if products are already in session.
             $scope.comapnyItems = response.data;
+            
             $scope.$apply();
         } catch (error) {
             console.log(error);
@@ -40,7 +54,6 @@ angular.module('myApp').controller("homeController", function ($scope, $q, $inte
             console.log(error);
         }
     }
-
 
     init();
 });

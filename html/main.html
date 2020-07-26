@@ -65,8 +65,8 @@
 				<div class="catey__icon">
 					<a href="#" class="cate__btn" data-toggle="modal" data-target="#category_model" title="Categories"><i class="uil uil-apps"></i></a>
 				</div>
-				<div class="header_cart order-1">
-					<a href="#" class="cart__btn hover-btn pull-bs-canvas-left" title="Cart"><i class="uil uil-shopping-cart-alt"></i><span>Cart</span><ins>2</ins><i class="uil uil-angle-down"></i></a>
+				<div class="header_cart order-1" ng-if="cartData.length > 0">
+					<a href="#" class="cart__btn hover-btn pull-bs-canvas-left" title="Cart"><i class="uil uil-shopping-cart-alt"></i><span>Cart</span><ins>{{cartData.length}}</ins><i class="uil uil-angle-down"></i></a>
 				</div>
 				<div class="search__icon order-1">
 					<a href="#" class="search__btn hover-btn" data-toggle="modal" data-target="#search_model" title="Search"><i class="uil uil-search"></i></a>
@@ -75,8 +75,9 @@
 		</div>
 	</header>
 	<!-- Header End -->
-
-<div class="wrapper" data-ng-include="activeOption"></div>
+	
+	<div data-ng-include="'html/cart-view.html'"></div>
+	<div class="wrapper" data-ng-include="activeOption"></div>
 
 
 	<!-- Footer Start -->

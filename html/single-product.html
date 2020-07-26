@@ -80,23 +80,23 @@
                                     <p class="pp-descp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate, purus at tempor blandit, nulla felis dictum eros, sed volutpat odio sapien id lectus. Cras mollis massa ac congue posuere. Fusce viverra mauris vel magna pretium aliquet. Nunc tincidunt, velit id tempus tristique, velit dolor hendrerit nibh, at scelerisque neque mauris sed ex.</p>
                                     <div class="product-group-dt">
                                         <ul>
-                                            <li><div class="main-price color-discount">Price<span>${{productDetails.MenuItem_Price}}</span></div></li>
+                                            <li><div class="main-price color-discount">Price<span>{{productDetails.MenuItem_Price  | currency}}</span></div></li>
                                             <!-- <li><div class="main-price mrp-price">MRP Price<span>$18</span></div></li> -->
                                         </ul>
                                         <ul class="gty-wish-share">
                                             <li>
                                                 <div class="qty-product">
                                                     <div class="quantity buttons_added">
-                                                        <input type="button" value="-" class="minus minus-btn">
-                                                        <input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-                                                        <input type="button" value="+" class="plus plus-btn">
+                                                        <input type="button" value="-" class="minus minus-btn" ng-click="subqty(productDetails)">
+                                                        <input type="text"  value="{{productDetails.quantity ? productDetails.quantity:1}}" class="input-text qty text">
+                                                        <input type="button" value="+" class="plus plus-btn" ng-click="addqty(productDetails)">
                                                     </div>
                                                 </div>
                                             </li>
                                             <li><span class="like-icon save-icon" title="wishlist"></span></li>
                                         </ul>
                                         <ul class="ordr-crt-share">
-                                            <li><button class="add-cart-btn hover-btn"><i class="uil uil-shopping-cart-alt"></i>Add to Cart</button></li>
+                                            <li><button class="add-cart-btn hover-btn" ng-click="addProduct(productDetails);"><i class="uil uil-shopping-cart-alt"></i>Add to Cart</button></li>
                                             <li><button class="order-btn hover-btn">Order Now</button></li>
                                         </ul>
                                     </div>
