@@ -7,6 +7,7 @@ angular.module('myApp').factory('navigationService', function (detachedScope) {
     allTemplates["home"] = { url: "html/home.html", topHeader: "Home" };
     allTemplates["single"] = { url: "html/single-product.html", topHeader: "single" };
     allTemplates["contact"] = { url: "html/contact-page.html", topHeader: "single" };
+    allTemplates["checkout"] = { url: "html/checkout.html", topHeader: "single" };
     return {
 
         getActiveTemplate: function () {

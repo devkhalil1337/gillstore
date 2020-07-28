@@ -19,7 +19,7 @@
 			<div class="side-cart-items">
 				<div class="cart-item" ng-repeat="cart in cartData">
 					<div class="cart-product-img">
-						<img src="images/product/img-1.jpg" alt="">
+						<img src="images/product/noImage.jpg" alt="">
 						<!-- <div class="offer-badge">6% OFF</div> -->
 					</div>
 					<div class="cart-text">
@@ -51,7 +51,7 @@
 			</div>
 			<div class="checkout-cart">
 				<a href="#" class="promo-code">Have a promocode?</a>
-				<a href="#" class="cart-checkout-btn hover-btn">Proceed to Checkout</a>
+				<a href ng-click="openPage('checkout')" class="cart-checkout-btn hover-btn">Proceed to Checkout</a>
 			</div>
 		</div>
 	</div>

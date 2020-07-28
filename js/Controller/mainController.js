@@ -5,7 +5,7 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
         getCompanyDetails();
         getDataFromSession();
         $scope.totalAmount = productService.getTotalAmount();
-       navigationService.setActiveTemplate($scope.selectedTab);
+        navigationService.setActiveTemplate($scope.selectedTab);
     }
 
 
