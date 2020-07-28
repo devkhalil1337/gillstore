@@ -1,4 +1,16 @@
+<style>
+ .dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+</style>
 <div  ng-controller="homeController"> 
+
     <div class="section145">
         <div class="container">
            <div class="row">
@@ -11,24 +23,19 @@
                  </div>
               </div>
               <div class="col-md-12">
-                 <div class="owl-carousel cate-slider owl-theme owl-loaded owl-drag">
-                    <div class="owl-stage-outer">
-                       <div class="owl-stage" style="transform: translate3d(-1200px, 0px, 0px); transition: all 0s ease 0s; width: 4600px;">
-                          <div class="owl-item cloned" style="width: 170px; margin-right: 30px;" ng-repeat="cate in comapnyCategory">
-                             <div class="item" ng-click="getCate(cate);">
-                                <a href="#" class="category-item">
-                                   <div class="cate-img">
-                                      <img src="images/category/icon-6.svg" alt="">
-                                   </div>
-                                   <h4> {{cate.RootCat_Name}}  </h4>
-                                </a>
-                             </div>
-                          </div>
-                       </div>
+                <data-owl-carousel class="owl-carousel" data-options="{navigation: true, pagination: false, rewindNav : false}">
+                    <div owl-carousel-item="" ng-repeat="cate in comapnyCategory" class="row">
+                        <div class="item" ng-click="getCate(cate);" style="width: 70%;">
+                            <a href="#" class="category-item">
+                               <div class="cate-img">
+                                  <img ng-if="!cate.RootCat_Image" src="images/category/icon-6.svg" alt="">
+                                  <img ng-if="cate.RootCat_Image" src="images/category/{{cate.RootCat_Image}}.svg" alt="">
+                               </div>
+                               <h4> {{cate.RootCat_Name}}  </h4>
+                            </a>
+                         </div>
                     </div>
-                    <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="uil uil-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="uil uil-angle-right"></i></button></div>
-                    <div class="owl-dots disabled"></div>
-                 </div>
+                  </data-owl-carousel>
               </div>
            </div>
         </div>
@@ -43,20 +50,23 @@
                         </div>
                         <a href="#" class="filter-btn pull-bs-canvas-right">Filters</a>
                         <div class="product-sort">
-                            <div class="ui selection dropdown vchrt-dropdown">
-                                <input name="gender" type="hidden" value="default">
-                                <i class="dropdown icon d-icon"></i>
-                                <div class="text">Popularity</div>
-                                <div class="menu">
-                                    <div class="item" data-value="0">Popularity</div>
-                                    <div class="item" data-value="1">Price - Low to High</div>
-                                    <div class="item" data-value="2">Price - High to Low</div>
-                                    <div class="item" data-value="3">Alphabetical</div>
-                                    <div class="item" data-value="4">Saving - High to Low</div>
-                                    <div class="item" data-value="5">Saving - Low to High</div>
-                                    <div class="item" data-value="6">% Off - High to Low</div>
+                            
+                            <div class="dropdown">
+                                <div class=" ui selection dropdown vchrt-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Popularity
+                                  <input name="gender" type="hidden" value="default">
+                                  <i class="dropdown icon d-icon" tabindex="0"><div class="menu" tabindex="-1"></div></i>
+                              </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <div class="dropdown-item" data-value="0">Popularity</div>
+                                   <div class="dropdown-item" data-value="1">Price - Low to High</div>
+                                    <div class="dropdown-item" data-value="2">Price - High to Low</div>
+                                    <div class="dropdown-item" data-value="3">Alphabetical</div>
+                                    <div class="dropdown-item" data-value="4">Saving - High to Low</div>
+                                    <div class="dropdown-item" data-value="5">Saving - Low to High</div>
+                                    <div class="dropdown-item" data-value="6">% Off - High to Low</div>
                                 </div>
-                            </div>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" ng-show="false">
                         <div class="more-product-btn">
                             <button class="show-more-btn hover-btn">Show More</button>
                         </div>
