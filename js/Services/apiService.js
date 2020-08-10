@@ -173,5 +173,18 @@ angular.module('myApp').factory('apiService', function ($http, $q) {
         }
         return $http(req);
     }
+    factory.sendOrder = function (data) {
+        let url = apiBaseUrl + "sendOrder";
+        var req = {
+            method: 'POST',
+            url: url,
+            headers: {
+                'Content-Type': "application/json",
+                Authorization: auth
+            },
+            data: data
+        }
+        return $http(req);
+    }
     return factory;
 });

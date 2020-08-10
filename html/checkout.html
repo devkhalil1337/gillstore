@@ -284,19 +284,19 @@
                                                     <ul class="radio--group-inline-container_1">
                                                         <li>
                                                             <div class="radio-item_1">
-                                                                <input id="cashondelivery1" value="cashondelivery" name="paymentmethod" type="radio" data-minimum="50.0">
+                                                                <input id="cashondelivery1" value="cashondelivery" ng-click="paymentMethod.cash = true;paymentMethod.card = false;" name="paymentmethod" type="radio" data-minimum="50.0">
                                                                 <label for="cashondelivery1" class="radio-label_1">Cash on Delivery</label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="radio-item_1">
-                                                                <input id="card1" value="card" name="paymentmethod" type="radio" data-minimum="50.0">
+                                                                <input id="card1" value="card" name="paymentmethod" ng-click="paymentMethod.card = true;paymentMethod.cash = false;" type="radio" data-minimum="50.0">
                                                                 <label  for="card1" class="radio-label_1">Credit / Debit Card</label>
                                                             </div>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="form-group return-departure-dts" data-method="cashondelivery">															
+                                                <div class="form-group return-departure-dts" ng-if="paymentMethod.cash" data-method="cashondelivery" style="display: block;" >															
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="pymnt_title">
@@ -306,7 +306,7 @@
                                                         </div>														
                                                     </div>
                                                 </div>
-                                                <div class="form-group return-departure-dts" data-method="card">															
+                                                <div class="form-group return-departure-dts" ng-if="paymentMethod.card"  data-method="card"  style="display: block;" >															
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="pymnt_title mb-4">
@@ -375,7 +375,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="#" class="next-btn16 hover-btn">Place Order</a>
+                                                <button ng-click="placeOrder();" ng-disabled="!orderButtonValidation()" class="next-btn16 hover-btn">Place Order</button>
                                             </div>
                                         </div>
                                     </div>

@@ -1,4 +1,4 @@
-angular.module('myApp').factory('productService', function (detachedScope) {
+angular.module('myApp').factory('productService', function (detachedScope,commonMethods,apiService) {
     var internalScope = detachedScope.$new();
 
 
@@ -86,6 +86,10 @@ angular.module('myApp').factory('productService', function (detachedScope) {
         internalScope.$emit("onCartChange");
     }
 
+    function _clearCart(){
+        localStorage.removeItem("productArr");
+        internalScope.$emit("onCartChange");
+    }
     function _getProductToLocalStorage(){
         return JSON.parse(localStorage.getItem("productArr"));
     }
@@ -112,6 +116,36 @@ angular.module('myApp').factory('productService', function (detachedScope) {
         return total;
     }
 
+    function _sendOrder(cart) {
+        let order = {
+          orderTime: commonMethods.getCurrentEpochTime(),
+          CompID: 30,
+          totalOrderAmount: _getTotalAmount(),
+          invoiceId: 'order-' + commonMethods.getCurrentEpochTime() + '30',
+          orderType: cart.paymentMethod.cash ? 'cash-on-delivery' : 'card-payment'
+        }
+        let orderDetails = [];
+        console.log(cart)
+        cart.forEach(pro => {
+          orderDetails.push({
+            cateId: pro.RootCat_ID,
+            orderId: order.invoiceId,
+            productId: pro.Id,
+            productName: pro.MenuItem_Name,
+            productDetails: pro.MenuItem_Detail,
+            productNotes: 'no notes yet',
+            productQty: pro.quantity,
+            productPrice: pro.MenuItem_Price
+          });
+        });
+        let data = {
+          order: order,
+          orderDetails: orderDetails
+        };
+        return data;
+      }
+
+
     return{
         observeOnCartChange: function (fn) {
 			return internalScope.$on("onCartChange", function (e, val) {
@@ -127,6 +161,8 @@ angular.module('myApp').factory('productService', function (detachedScope) {
         getProductToLocalStorage:_getProductToLocalStorage,
         removeProductFromCart:_removeProductFromCart,
 
-        getTotalAmount:_getTotalAmount
+        getTotalAmount:_getTotalAmount,
+        sendOrder:_sendOrder,
+        clearCart:_clearCart
     }
 });
