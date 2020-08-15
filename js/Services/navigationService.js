@@ -5,10 +5,11 @@ angular.module('myApp').factory('navigationService', function (detachedScope) {
 
     var allTemplates = [];
     allTemplates["home"] = { url: "html/home.html", topHeader: "Home" };
-    allTemplates["single"] = { url: "html/single-product.html", topHeader: "single" };
-    allTemplates["contact"] = { url: "html/contact-page.html", topHeader: "single" };
-    allTemplates["checkout"] = { url: "html/checkout.html", topHeader: "single" };
+    allTemplates["single"] = { url: "html/single-product.html", topHeader: "Product" };
+    allTemplates["contact"] = { url: "html/contact-page.html", topHeader: "Contact Us" };
+    allTemplates["checkout"] = { url: "html/checkout.html", topHeader: "Checkout" };
     allTemplates["login"] = { url: "html/login.html", topHeader: "Login Here" };
+    allTemplates["register"] = { url: "html/register.html", topHeader: "Register Here" };
     return {
 
         getActiveTemplate: function () {

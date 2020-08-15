@@ -1,4 +1,4 @@
-angular.module('myApp').controller("productDetailsController", function ($scope, $q, $interval,navigationService,apiService,productService) {
+angular.module('myApp').controller("productDetailsController", function ($rootScope,$scope, $q, $interval,navigationService,apiService,productService) {
     $scope.productDetails = {};
     async function init() {
         $scope.productDetails = productService.getProductDetailsToLS();

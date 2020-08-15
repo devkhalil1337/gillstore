@@ -57,7 +57,7 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
         function (val) {
             var activeOptionObj = navigationService.getActiveTemplate();
             $scope.activeOption = activeOptionObj.url;
-            $scope.headerText = activeOptionObj.topHeader;
+            $rootScope.headerText = activeOptionObj.topHeader;
             getuserCred();
         }
     ));
