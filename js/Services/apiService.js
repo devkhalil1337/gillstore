@@ -186,5 +186,31 @@ angular.module('myApp').factory('apiService', function ($http, $q) {
         }
         return $http(req);
     }
+    factory.custsignin = function (data) {
+        let url = apiBaseUrl + "custsignin";
+        var req = {
+            method: 'POST',
+            url: url,
+            headers: {
+                'Content-Type': "application/json",
+                Authorization: auth
+            },
+            data: data
+        }
+        return $http(req);
+    }
+    factory.custsignup = function (data) {
+        let url = apiBaseUrl + "custsignup";
+        var req = {
+            method: 'POST',
+            url: url,
+            headers: {
+                'Content-Type': "application/json",
+                Authorization: auth
+            },
+            data: data
+        }
+        return $http(req);
+    }
     return factory;
 });

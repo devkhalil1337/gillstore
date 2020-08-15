@@ -1,10 +1,11 @@
-angular.module('myApp').controller("homeController", function ($scope, $q, $interval,navigationService,apiService,productService,commonMethods) {
+angular.module('myApp').controller("homeController", function ($rootScope,$scope, $q, $interval,navigationService,apiService,productService,commonMethods) {
 
     async function init() {
         console.log("I am init function of homeController");
         await getCompanyCategory();
         await getCompanyProducts();
     }
+
 
     $scope.getProductDetails = function(item){
         productService.setProductDetailsToLS(item);

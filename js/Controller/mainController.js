@@ -1,4 +1,4 @@
-angular.module('myApp').controller("mainController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,productService) {
+angular.module('myApp').controller("mainController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,productService,userService) {
     $scope.cartData = [];
     function init() {
         $scope.selectedTab = "home"
@@ -26,10 +26,18 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
         productService.removeProductFromCart(item);
     }
 
+    $scope.signOut = function(){
+        userService.deleteUserCred();
+        $scope.userDetails = null;
+    }
+
     async function getDataFromSession(){
         $scope.cartData = productService.getProductToLocalStorage();
     }
-
+    async function getuserCred(){
+        $scope.userDetails = userService.getUserCred();
+        console.log($scope.userDetails);
+    }
     async function getCompanyDetails() {
         try {
             let response = await apiService.getCompany();
@@ -50,6 +58,7 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
             var activeOptionObj = navigationService.getActiveTemplate();
             $scope.activeOption = activeOptionObj.url;
             $scope.headerText = activeOptionObj.topHeader;
+            getuserCred();
         }
     ));
 
