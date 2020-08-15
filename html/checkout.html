@@ -17,8 +17,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-7">
+                    <form name="userForm">
                     <div id="checkout_wizard" class="checkout accordion left-chck145">
-                        <div class="checkout-step">
+                        <!-- <div class="checkout-step">
                             <div class="checkout-card" id="headingOne"> 
                                 <span class="checkout-step-number">1</span>
                                 <h4 class="checkout-step-title"> 
@@ -72,15 +73,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="checkout-step">
-                            <div class="checkout-card" id="headingTwo">
-                                <span class="checkout-step-number">2</span>
-                                <h4 class="checkout-step-title">
-                                    <button class="wizard-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Delivery Address</button>
+                            <div class="checkout-card" id="headingOne"> 
+                                <span class="checkout-step-number">1</span>
+                                <h4 class="checkout-step-title"> 
+                                    <button class="wizard-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Delivery Address</button>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#checkout_wizard">
+                            <div id="collapseOne" class="collapse in show" data-parent="#checkout_wizard">
                                 <div class="checkout-step-body">
                                     <div class="checout-address-step">
                                         <div class="row">
@@ -91,15 +92,15 @@
                                                         <div class="product-radio">
                                                             <ul class="product-now">
                                                                 <li>
-                                                                    <input type="radio" id="ad1" name="address1" checked>
+                                                                    <input type="radio" id="ad1" name="address1" ng-click="chooseAddress('Home')"  ng-model="userAddress.addType" value="Home" checked>
                                                                     <label for="ad1">Home</label>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="radio" id="ad2" name="address1">
+                                                                    <input type="radio" id="ad2" name="address1" ng-click="chooseAddress('Office')"  ng-model="userAddress.addType" value="Office">
                                                                     <label for="ad2">Office</label>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="radio" id="ad3" name="address1">
+                                                                    <input type="radio" id="ad3" name="address1" ng-click="chooseAddress('Other')"  ng-model="userAddress.addType" value="Other">
                                                                     <label for="ad3">Other</label>
                                                                 </li>
                                                             </ul>
@@ -107,10 +108,10 @@
                                                     </div>
                                                     <div class="address-fieldset">
                                                         <div class="row">
-                                                            <div class="col-lg-6 col-md-12">
+                                                            <!-- <div class="col-lg-6 col-md-12">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Name*</label>
-                                                                    <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md" required="">
+                                                                    <input id="name" name="name" type="text" placeholder="Name" ng-model="userAddress.address" class="form-control input-md" required="">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-12">
@@ -118,36 +119,36 @@
                                                                     <label class="control-label">Email Address*</label>
                                                                     <input id="email1" name="email1" type="text" placeholder="Email Address" class="form-control input-md" required="">
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-lg-12 col-md-12">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Flat / House / Office No.*</label>
-                                                                    <input id="flat" name="flat" type="text" placeholder="Address" class="form-control input-md" required="">
+                                                                    <label class="control-label">Address:</label>
+                                                                    <input id="flat" name="flat" type="text" placeholder="Address" ng-model="userAddress.address"class="form-control input-md" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12 col-md-12">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Street / Society / Office Name*</label>
-                                                                    <input id="street" name="street" type="text" placeholder="Street Address" class="form-control input-md">
+                                                                    <label class="control-label">City</label>
+                                                                    <input id="street" name="street" type="text" placeholder="Street Address" ng-model="userAddress.city"  class="form-control input-md" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-12">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Pincode*</label>
-                                                                    <input id="pincode" name="pincode" type="text" placeholder="Pincode" class="form-control input-md" required="">
+                                                                    <input id="pincode" name="pincode" type="text" placeholder="Pincode" ng-model="userAddress.zipcode" class="form-control input-md" required>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6 col-md-12">
+                                                            <!-- <div class="col-lg-6 col-md-12">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Locality*</label>
                                                                     <input id="Locality" name="locality" type="text" placeholder="Enter City" class="form-control input-md" required="">
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-lg-12 col-md-12">
                                                                 <div class="form-group">
                                                                     <div class="address-btns">
-                                                                        <button class="save-btn14 hover-btn">Save</button>
-                                                                        <a class="collapsed ml-auto next-btn16 hover-btn" role="button" data-toggle="collapse" data-parent="#checkout_wizard" href="#collapseThree"> Next </a>
+                                                                        <button class="save-btn14 hover-btn" ng-disabled="userForm.$invalid" ng-click="saveAddress();">Save</button>
+                                                                        <!-- <a class="collapsed ml-auto next-btn16 hover-btn" role="button" data-toggle="collapse" data-parent="#checkout_wizard" href="#collapseThree"> Next </a> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -160,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="checkout-step">
+                        <!-- <div class="checkout-step">
                             <div class="checkout-card" id="headingThree"> 
                                 <span class="checkout-step-number">3</span>
                                 <h4 class="checkout-step-title">
@@ -267,12 +268,12 @@
                                     <a class="collapsed next-btn16 hover-btn" role="button" data-toggle="collapse"  href="#collapseFour"> Proccess to payment </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="checkout-step">
                             <div class="checkout-card" id="headingFour">
-                                <span class="checkout-step-number">4</span>
+                                <span class="checkout-step-number">2</span>
                                 <h4 class="checkout-step-title"> 
-                                    <button class="wizard-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Payment</button>
+                                    <button class="wizard-btn collapsed" type="button" data-toggle="collapse"  ng-disabled="userForm.$invalid" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Payment</button>
                                 </h4>
                             </div>
                             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#checkout_wizard">
@@ -383,6 +384,7 @@
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
                 <div class="col-lg-4 col-md-5">
                     <div class="pdpt-bg mt-0">
