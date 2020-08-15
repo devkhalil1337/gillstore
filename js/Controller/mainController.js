@@ -26,9 +26,10 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
         productService.removeProductFromCart(item);
     }
 
-    $scope.signOut = function(){
+    $rootScope.signOut = function(){
         userService.deleteUserCred();
         $scope.userDetails = null;
+        navigationService.setActiveTemplate("home");
     }
 
     async function getDataFromSession(){
@@ -36,7 +37,6 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
     }
     async function getuserCred(){
         $scope.userDetails = userService.getUserCred();
-        console.log($scope.userDetails);
     }
     async function getCompanyDetails() {
         try {

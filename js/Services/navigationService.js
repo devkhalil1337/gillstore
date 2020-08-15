@@ -10,6 +10,8 @@ angular.module('myApp').factory('navigationService', function (detachedScope) {
     allTemplates["checkout"] = { url: "html/checkout.html", topHeader: "Checkout" };
     allTemplates["login"] = { url: "html/login.html", topHeader: "Login Here" };
     allTemplates["register"] = { url: "html/register.html", topHeader: "Register Here" };
+    allTemplates["myorders"] = { url: "html/user-my-orders.html", topHeader: "My Orders" };
+    allTemplates["myaddresses"] = { url: "html/user-my-address.html", topHeader: "My Addresses" };
     return {
 
         getActiveTemplate: function () {

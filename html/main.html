@@ -21,7 +21,7 @@
 							<a href ng-click="openPage('login')"  class="offer-link"><i class="uil uil-user"></i>Login</a>
 						</li>
 						<li class="ui dropdown" ng-if="userDetails">
-							<a href="#" class="opts_account">
+							<a href ng-click="openPage('myorders')" class="opts_account">
 								<img src="images/avatar/img-5.jpg" alt="">
 								<span class="user__name">{{userDetails.fullname}}</span>
 								<i class="uil uil-angle-down"></i>
@@ -35,13 +35,13 @@
 											</span>
 										</a>
 									</div>	
-									<a href="dashboard_overview.html" class="item channel_item"><i class="uil uil-apps icon__1"></i>Dashbaord</a>								
-									<a href="dashboard_my_orders.html" class="item channel_item"><i class="uil uil-box icon__1"></i>My Orders</a>
-									<a href="dashboard_my_wishlist.html" class="item channel_item"><i class="uil uil-heart icon__1"></i>My Wishlist</a>
-									<a href="dashboard_my_wallet.html" class="item channel_item"><i class="uil uil-usd-circle icon__1"></i>My Wallet</a>
+									<!-- <a href="dashboard_overview.html" class="item channel_item"><i class="uil uil-apps icon__1"></i>Dashbaord</a>								 -->
+									<a href  ng-click="openPage('myorders')" class="item channel_item"><i class="uil uil-box icon__1"></i>My Orders</a>
+									<!-- <a href="dashboard_my_wishlist.html" class="item channel_item"><i class="uil uil-heart icon__1"></i>My Wishlist</a>
+									<a href="dashboard_my_wallet.html" class="item channel_item"><i class="uil uil-usd-circle icon__1"></i>My Wallet</a> -->
 									<a href="dashboard_my_addresses.html" class="item channel_item"><i class="uil uil-location-point icon__1"></i>My Address</a>
-									<a href="offers.html" class="item channel_item"><i class="uil uil-gift icon__1"></i>Offers</a>
-									<a href="faq.html" class="item channel_item"><i class="uil uil-info-circle icon__1"></i>Faq</a>
+									<!-- <a href="offers.html" class="item channel_item"><i class="uil uil-gift icon__1"></i>Offers</a>
+									<a href="faq.html" class="item channel_item"><i class="uil uil-info-circle icon__1"></i>Faq</a> -->
 									<a href ng-click="signOut();" class="item channel_item"><i class="uil uil-lock-alt icon__1"></i>Logout</a>
                                 </div>
 							<!-- <div class="menu dropdown_account">

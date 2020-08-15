@@ -1,0 +1,186 @@
+<div ng-controller="userMyAddressController">
+    <div class="dashboard-group" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-dt">
+                        <div class="user-img">
+                            <img src="images/avatar/img-5.jpg" alt="">
+                            <!-- <div class="img-add">													
+                                <input type="file" id="file">
+                                <label for="file"><i class="uil uil-camera-plus"></i></label>
+                            </div> -->
+                        </div>
+                        <h4 ng-bind="userDetails.fullname"></h4>
+                        <p ng-bind="userDetails.number">+91999999999<a href="#"><i class="uil uil-edit"></i></a></p>
+                        <!-- <div class="earn-points"><img src="images/Dollar.svg" alt="">Points : <span>20</span></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>	
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="left-side-tabs">
+                        <div class="dashboard-left-links">
+                            <!-- <a href="dashboard_overview.html" class="user-item"><i class="uil uil-apps"></i>Overview</a> -->
+                            <a href ng-click="openPage('myorders')" class="user-item"><i class="uil uil-box"></i>My Orders</a>
+                            <!-- <a href="dashboard_my_rewards.html" class="user-item"><i class="uil uil-gift"></i>My Rewards</a>
+                            <a href="dashboard_my_wallet.html" class="user-item"><i class="uil uil-wallet"></i>My Wallet</a>
+                            <a href="dashboard_my_wishlist.html" class="user-item"><i class="uil uil-heart"></i>Shopping Wishlist</a> -->
+                            <a href ng-click="openPage('myaddresses')" class="user-item active"><i class="uil uil-location-point"></i>My Address</a>
+                            <a href ng-click="signOut();" class="user-item"><i class="uil uil-exit"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="dashboard-right">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-title-tab">
+                                    <h4><i class="uil uil-location-point"></i>My Address</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="pdpt-bg">
+                                    <div class="pdpt-title">
+                                        <h4>My Address</h4>
+                                    </div>
+                                    <div class="address-body">
+                                        <a href ng-click="userAddress = {addressType:'Home'}" class="add-address hover-btn" data-toggle="modal" data-target="#address_model">Add New Address</a>
+                                        <div class="address-item" ng-repeat="addr in userAddresses | filter:{isActive:1}">
+                                            <div class="address-icon1">
+                                                <i class="uil uil-home-alt"></i>
+                                            </div>
+                                            <div class="address-dt-all">
+                                                <h4>{{addr.addType | uppercase}}</h4>
+                                                <p ng-bind="addr.address + ' ' + addr.city + ' ' + addr.zipcode"> #0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</p>
+                                                <ul class="action-btns">
+                                                    <li><a href ng-click="editAddress(addr);" class="action-btn" data-toggle="modal" data-target="#address_model"><i class="uil uil-edit"></i></a></li>
+                                                    <li><a href ng-click="deleteAddress(addr)" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="address-item">
+                                            <div class="address-icon1">
+                                                <i class="uil uil-home-alt"></i>
+                                            </div>
+                                            <div class="address-dt-all">
+                                                <h4>Office</h4>
+                                                <p>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</p>	
+                                                <ul class="action-btns">
+                                                    <li><a href="#" class="action-btn"><i class="uil uil-edit"></i></a></li>
+                                                    <li><a href="#" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="address-item">
+                                            <div class="address-icon1">
+                                                <i class="uil uil-home-alt"></i>
+                                            </div>
+                                            <div class="address-dt-all">
+                                                <h4>Other</h4>
+                                                <p>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</p>
+                                                <ul class="action-btns">
+                                                    <li><a href="#" class="action-btn"><i class="uil uil-edit"></i></a></li>
+                                                    <li><a href="#" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </div>	
+    </div>	
+
+
+<!-- Add Address Model Start-->
+<div id="address_model" class="header-cate-model main-gambo-model modal fade" tabindex="-1" role="dialog" aria-modal="false" ng-init = "userAddress.addressType = 'Home'">
+    <div class="modal-dialog category-area" role="document">
+        <div class="category-area-inner">
+            <div class="modal-header">
+                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                    <i class="uil uil-multiply"></i>
+                </button>
+            </div>
+            <div class="category-model-content modal-content"> 
+                <div class="cate-header">
+                    <h4>Add New Address</h4>
+                </div>
+                <div class="add-address-form">
+                    <div class="checout-address-step">
+                        <div class="row">
+                            <div class="col-lg-12">												
+                                <form  name="userForm">
+                                    <!-- Multiple Radios (inline) -->
+                                    <div class="form-group">
+                                        <div class="product-radio">
+                                            <ul class="product-now">
+                                                <li>
+                                                    <input type="radio" id="ad1" name="address1" ng-model="userAddress.addressType" value="Home" checked required>
+                                                    <label for="ad1">Home</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="ad2" name="address1"  ng-model="userAddress.addressType" value="Office" required>
+                                                    <label for="ad2">Office</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="ad3" name="address1"  ng-model="userAddress.addressType" value="Other" required>
+                                                    <label for="ad3">Other</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="address-fieldset">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Address</label>
+                                                    <input id="flat" name="flat" type="text" placeholder="Address"  ng-model="userAddress.address" class="form-control input-md" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">City</label>
+                                                    <input id="street" name="street" type="text" placeholder="City" ng-model="userAddress.city" class="form-control input-md" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Pincode*</label>
+                                                    <input id="pincode" name="pincode" type="text" placeholder="Pincode" ng-model="userAddress.zipcode" class="form-control input-md" required>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Locality*</label>
+                                                    <input id="Locality" name="locality" type="text" placeholder="Enter City" class="form-control input-md" required="">
+                                                </div>
+                                            </div> -->
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group mb-0">
+                                                    <div class="address-btns">
+                                                        <button class="save-btn14 hover-btn" ng-click="saveAddress();" ng-disabled="userForm.$invalid" data-dismiss="modal">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Address Model End-->
+
+</div>
