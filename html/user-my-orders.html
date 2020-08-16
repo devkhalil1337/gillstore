@@ -46,7 +46,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="pdpt-bg" ng-repeat="order in mainOrder">
                                     <div class="pdpt-title">
-                                        <h6>Order Time: {{order.Recvorder_datetime}}</h6>
+                                        <h6>Order Time: {{order.Recvorder_datetime | date: 'yyyy-MM-dd hh:mm:ss'}}</h6>
                                     </div> 
                                     <div class="order-body10">
                                         <ul class="order-dtsll" ng-repeat="orderDetails in getOrderDetails(order)">
