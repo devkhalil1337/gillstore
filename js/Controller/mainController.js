@@ -1,4 +1,4 @@
-angular.module('myApp').controller("mainController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,productService,userService) {
+angular.module('myApp').controller("mainController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,productService,userService,commonMethods) {
     $scope.cartData = [];
     function init() {
         $scope.selectedTab = "home"
@@ -40,7 +40,10 @@ angular.module('myApp').controller("mainController", function ($scope,$rootScope
     }
     async function getCompanyDetails() {
         try {
-            let response = await apiService.getCompany();
+            let data = {
+                CompID:commonMethods.getCompID
+            }
+            let response = await apiService.getCompany(data);
             $rootScope.comapnyDetails = response.data["data"][0];
             $scope.$apply();
         } catch (error) {

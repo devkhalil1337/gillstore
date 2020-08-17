@@ -34,7 +34,10 @@ angular.module('myApp').controller("homeController", function ($rootScope,$scope
   
     async function getCompanyProducts() {
         try {
-            let response = await apiService.getItems();
+            let data = {
+                CompID:commonMethods.getCompID
+            }
+            let response = await apiService.getItems(data);
             await productService.updateQuantityFromSession(response.data); //if products are already in session.
             $scope.comapnyItems = response.data;
             
@@ -46,7 +49,10 @@ angular.module('myApp').controller("homeController", function ($rootScope,$scope
 
     async function getCompanyCategory() {
         try {
-            let response = await apiService.getCategory();
+            let data = {
+                CompID:commonMethods.getCompID
+            }
+            let response = await apiService.getCategory(data);
             $scope.comapnyCategory = response.data;
             $scope.selectedCategory = $scope.comapnyCategory[0];
             $scope.addCategory = $scope.comapnyCategory[0];

@@ -1,5 +1,21 @@
 angular.module('myApp').factory('commonMethods', function ($http, $q) {
+    var appConfig;
+    //load app conig
+    $.ajax({
+      type: "Get",
+      url: "app-config.json",
+      dataType: "json",
+      async: false,
+      success: function (data) {
+        appConfig = data;
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+
     var factory = {};
+    factory.getCompID = appConfig['CompID'];
     factory.getCurrentEpochTime = function (data) {
         return (new Date).getTime();
     }

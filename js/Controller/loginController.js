@@ -1,4 +1,4 @@
-angular.module('myApp').controller("loginController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,userService) {
+angular.module('myApp').controller("loginController", function ($scope,$rootScope, $q, $interval,navigationService,apiService,userService,commonMethods) {
     $scope.userLogin = {email:'',password:''};
     function init() {
         console.log("I am init function of loginController");
@@ -6,7 +6,12 @@ angular.module('myApp').controller("loginController", function ($scope,$rootScop
 
     $scope.login = async function(){
         try{
-          let response = await apiService.custsignin($scope.userLogin);
+            let data = {
+                CompID:commonMethods.getCompID,
+                email:$scope.userLogin.email,
+                password:$scope.userLogin.password
+            }
+          let response = await apiService.custsignin(data);
           if(response.data.success){
               alert("User logged successfully!");
               userService.setUserCred(response.data.data[0]);

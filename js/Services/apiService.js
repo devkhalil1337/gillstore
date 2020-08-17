@@ -20,19 +20,6 @@ angular.module('myApp').factory('apiService', function ($http, $q) {
     factory.getCompany = function (data) {
         let url = apiBaseUrl + "getcompany";
         var req = {
-            method: 'GET',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.updatecompany = function (data) {
-        let url = apiBaseUrl + "updatecompany";
-        var req = {
             method: 'POST',
             url: url,
             headers: {
@@ -46,7 +33,7 @@ angular.module('myApp').factory('apiService', function ($http, $q) {
     factory.getCategory = function (data) {
         let url = apiBaseUrl + "getcategory";
         var req = {
-            method: 'GET',
+            method: 'POST',
             url: url,
             headers: {
                 'Content-Type': "application/json",
@@ -58,110 +45,6 @@ angular.module('myApp').factory('apiService', function ($http, $q) {
     }
     factory.getItems = function (data) {
         let url = apiBaseUrl + "getitems";
-        var req = {
-            method: 'GET',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.saveItem = function (data) {
-        let url = apiBaseUrl + "additem";
-        var req = {
-            method: 'POST',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.updateItem = function (data) {
-        let url = apiBaseUrl + "updateitem";
-        var req = {
-            method: 'POST',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.deleteItem = function (data) {
-        let url = apiBaseUrl + "deleteitem";
-        var req = {
-            method: 'POST',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.addCategory = function (data) {
-        let url = apiBaseUrl + "addcategory";
-        var req = {
-            method: 'POST',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.updateCategory = function (data) {
-        let url = apiBaseUrl + "updatecategory";
-        var req = {
-            method: 'POST',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.getAllusers = function (data) {
-        let url = apiBaseUrl + "getAllusers";
-        var req = {
-            method: 'GET',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.adduser = function (data) {
-        let url = apiBaseUrl + "adduser";
-        var req = {
-            method: 'POST',
-            url: url,
-            headers: {
-                'Content-Type': "application/json",
-                Authorization: auth
-            },
-            data: data
-        }
-        return $http(req);
-    }
-    factory.updateuser = function (data) {
-        let url = apiBaseUrl + "updateuser";
         var req = {
             method: 'POST',
             url: url,

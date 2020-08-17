@@ -41,6 +41,10 @@ angular.module('myApp').controller("checkoutController", function ($scope, $q, $
     }
 
     $scope.chooseAddress = function(addressType){
+        if(!$scope.userAddresses || $scope.userAddresses.length == 0){
+            $scope.userAddress.addType == 'Home';
+            return;
+        }
         $scope.userAddress = $scope.userAddresses.filter(addr => { return addr.addType == addressType && addr.isActive == 1})[0];
     }
 
