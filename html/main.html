@@ -17,16 +17,16 @@
 					<a href="index.html"><img src="images/dark-logo-1.svg" alt=""></a>
 				</div>
 				<div class="main_logo" id="logo">
-					<a href="index.html"><img src="images/logo.svg" alt=""></a>
-					<a href="index.html"><img class="logo-inverse" src="images/dark-logo.svg" alt=""></a>
+					<a ng-if="comapnyDetails.CompIcon" ng-click="openPage('home')"  href="index.html"><img style="width: 70%;"  ng-src="https://mini-sol.com/backoffice/images/{{comapnyDetails.CompIcon}}" alt=""></a>
+					<!-- <a href="index.html"><img  src="images/dark-logo.svg" alt=""></a> -->
 				</div>
 				<div class="header_right">
 					<ul>
 						<li>
-							<a href="#" class="offer-link"><i class="uil uil-phone-alt"></i>{{comapnyDetails.CompPhone}}</a>
+							<a href  class="offer-link"><i class="uil uil-phone-alt"></i>{{comapnyDetails.CompPhone}}</a>
 						</li>
 						<li>
-							<a href="faq.html" class="offer-link"><i class="uil uil-question-circle"></i>Help</a>
+							<a href class="offer-link"><i class="uil uil-question-circle"></i>Help</a>
 						</li>
 						<li ng-if="!userDetails">
 							<a href ng-click="openPage('login')"  class="offer-link"><i class="uil uil-user"></i>Login</a>
