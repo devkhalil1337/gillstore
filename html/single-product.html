@@ -21,63 +21,32 @@
                     <div class="product-dt-view">
                         <div class="row">
                             <div class="col-lg-4 col-md-4">
-                                <div id="sync1" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <img src="images/product/big-1.jpg" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/product/big-2.jpg" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/product/big-3.jpg" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/product/big-4.jpg" alt="">
-                                    </div>
+                                <div id="sync1" class="owl-carousel owl-theme owl-loaded owl-drag">
+                                   <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(-539px, 0px, 0px); transition: all 0s ease 0s; width: 2160px;">
+                                         <div class="owl-item cloned" style="width: 269.984px;">
+                                            <div class="item">
+                                               <img src="images/product/big-3.jpg" alt="">
+                                            </div>
+                                         </div>
+                                         <div class="owl-item cloned" style="width: 269.984px;">
+                                            <div class="item">
+                                               <img src="images/product/big-4.jpg" alt="">
+                                            </div>
+                                         </div>
+                                         <div class="owl-item active" style="width: 269.984px;">
+                                            <div class="item">
+                                               <img ng-src="https://mini-sol.com/backoffice/images/{{productDetails.MenuItem_Image}}" alt="">
+                                            </div>
+                                         </div>
+                                      </div>
+                                   </div>
                                 </div>
-                                <div id="sync2" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <img src="images/product/big-1.jpg" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/product/big-2.jpg" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/product/big-3.jpg" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/product/big-4.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
+                             </div>
                             <div class="col-lg-8 col-md-8">
                                 <div class="product-dt-right">
                                     <h2>{{productDetails.MenuItem_Name}}</h2>
-                                    <!-- <div class="no-stock">
-                                        <p class="pd-no">Product No.<span>12345</span></p>
-                                        <p class="stock-qty">Available<span>(Instock)</span></p>
-                                    </div> -->
-                                    <!-- <div class="product-radio">
-                                        <ul class="product-now">
-                                            <li>
-                                                <input type="radio" id="p1" name="product1">
-                                                <label for="p1">500g</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="p2" name="product1">
-                                                <label for="p2">1kg</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="p3" name="product1">
-                                                <label for="p3">2kg</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="p4" name="product1">
-                                                <label for="p4">3kg</label>
-                                            </li>
-                                        </ul>
-                                    </div> -->
-                                    <p class="pp-descp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate, purus at tempor blandit, nulla felis dictum eros, sed volutpat odio sapien id lectus. Cras mollis massa ac congue posuere. Fusce viverra mauris vel magna pretium aliquet. Nunc tincidunt, velit id tempus tristique, velit dolor hendrerit nibh, at scelerisque neque mauris sed ex.</p>
+                                    <p class="pp-descp">{{productDetails.MenuItem_Detail}}</p>
                                     <div class="product-group-dt">
                                         <ul>
                                             <li><div class="main-price color-discount">Price<span>{{productDetails.MenuItem_Price  | currency}}</span></div></li>
@@ -97,7 +66,7 @@
                                         </ul>
                                         <ul class="ordr-crt-share">
                                             <li><button class="add-cart-btn hover-btn" ng-click="addProduct(productDetails);"><i class="uil uil-shopping-cart-alt"></i>Add to Cart</button></li>
-                                            <li><button class="order-btn hover-btn" ng-click="openPage('checkout')">Order Now</button></li>
+                                            <li><button class="order-btn hover-btn" ng-click="openPage('checkout')" ng-disabled="cartData.length == 0">Order Now</button></li>
                                         </ul>
                                     </div>
                                     <div class="pdp-details">

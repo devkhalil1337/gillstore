@@ -19,7 +19,8 @@
 			<div class="side-cart-items">
 				<div class="cart-item" ng-repeat="cart in cartData">
 					<div class="cart-product-img">
-						<img src="images/product/noImage.jpg" alt="">
+						<img ng-if="!cart.MenuItem_Image" src="images/product/noImage.jpg" alt="">
+						<img ng-if="cart.MenuItem_Image" ng-src="https://mini-sol.com/backoffice/images/{{cart.MenuItem_Image}}" alt="">
 						<!-- <div class="offer-badge">6% OFF</div> -->
 					</div>
 					<div class="cart-text">

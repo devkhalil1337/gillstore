@@ -52,7 +52,8 @@
                                         <ul class="order-dtsll" ng-repeat="orderDetails in getOrderDetails(order)">
                                             <li>
                                                 <div class="order-dt-img">
-                                                    <img src="images/groceries.svg" alt="">
+                                                    <img ng-if="!orderDetails.MenuItem_Image" src="images/groceries.svg" alt="">
+                                                    <img ng-if="orderDetails.MenuItem_Image" ng-src="https://mini-sol.com/backoffice/images/{{orderDetails.MenuItem_Image}}" alt="">
                                                 </div>
                                             </li>
                                             <li>

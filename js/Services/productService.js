@@ -127,7 +127,6 @@ angular.module('myApp').factory('productService', function (detachedScope,common
           addressId:cart.addressId,
         }
         let orderDetails = [];
-        console.log(cart)
         cart.forEach(pro => {
           orderDetails.push({
             cateId: pro.RootCat_ID,
@@ -137,7 +136,8 @@ angular.module('myApp').factory('productService', function (detachedScope,common
             productDetails: pro.MenuItem_Detail,
             productNotes: 'no notes yet',
             productQty: pro.quantity,
-            productPrice: pro.MenuItem_Price
+            productPrice: pro.MenuItem_Price,
+            productImage: pro.MenuItem_Image
           });
         });
         let data = {

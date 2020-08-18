@@ -27,10 +27,6 @@ angular.module('myApp').controller("homeController", function ($rootScope,$scope
     $scope.getCate = function(item){
         $scope.selectedCategory = item;
     }
-
-    $scope.convertImages = function(imageData){
-        return commonMethods.decodebytesFromString(imageData)
-    }
   
     async function getCompanyProducts() {
         try {

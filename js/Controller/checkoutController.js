@@ -86,12 +86,11 @@ angular.module('myApp').controller("checkoutController", function ($scope, $q, $
         try{
            let data =  productService.sendOrder($scope.cartData);
            let response = await apiService.sendOrder(data);
-            console.log(response);
            if(response.data.success){
                alert("Order has been placed!");
                productService.clearCart();
                navigationService.setActiveTemplate("home");
-                $scope.$apply();
+               $scope.$apply();
            }
         }catch(error){
             console.log(error);

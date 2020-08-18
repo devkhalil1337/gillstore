@@ -65,7 +65,7 @@
                         <div class="product-item mb-30">
                             <a href class="product-img">
                                 <img ng-if="!items.MenuItem_Image" src="../images/product/NoImage.jpg" alt="">
-                                <img ng-if="items.MenuItem_Image" ng-src="data:image/png;base64,{{convertImages(items.MenuItem_Image)}}" alt="" ng-click="getProductDetails(items)">
+                                <img ng-if="items.MenuItem_Image" ng-src="https://mini-sol.com/backoffice/images/{{items.MenuItem_Image}}" alt="" ng-click="getProductDetails(items)">
                                 <div class="product-absolute-options">
                                     <span class="offer-badge-1">6% off</span>
                                     <span class="like-icon" title="wishlist"></span>
