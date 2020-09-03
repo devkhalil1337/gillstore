@@ -119,9 +119,9 @@ angular.module('myApp').factory('productService', function (detachedScope,common
     function _sendOrder(cart) {
         let order = {
           orderTime: commonMethods.getCurrentEpochTime(),
-          CompID: 30,
+          CompID: commonMethods.getCompID,
           totalOrderAmount: _getTotalAmount(),
-          invoiceId: 'order-' + commonMethods.getCurrentEpochTime() + '30',
+          invoiceId: 'order-' + commonMethods.getCurrentEpochTime() + ''+commonMethods.getCompID,
           orderType: cart.paymentMethod.cash ? 'cash-on-delivery' : 'card-payment',
           customerId:cart.customerId,
           addressId:cart.addressId,
