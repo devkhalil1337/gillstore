@@ -1,9 +1,9 @@
-# Mini-sol Backoffice
+# Mini-sol Backoffice for food ordering
 
 Technologies
 - Nodejs
 - Angularjs
-- Bootstrap 4
+- Bootstrap 4.0
 
 
 Run
